@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import customHooks from './hooks/customHooks';
 
 function App() {
+
+  const [index, nextPage, backPage] = customHooks(); 
+  
+  const student = [
+    { id: 1, name: 'Dang' },
+
+    { id: 2, name: 'Zang' },
+
+    { id: 3, name: 'Yang' },
+
+    { id: 4, name: 'Giang' },
+];
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h4>学生一覧: [Dang, Zang, Yang, Giang]</h4>
+      <h4>位置: {student[index].id}</h4>
+      <h4>名前: {student[index].name}</h4>
+      <button
+        onClick={nextPage}
+      >
+        次に
+      </button>
+      <button
+        style={{marginLeft: 20}}
+        onClick={backPage}
+      >
+        前に
+      </button>
     </div>
   );
 }
